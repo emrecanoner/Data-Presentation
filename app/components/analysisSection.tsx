@@ -43,7 +43,7 @@ export function AnalysisSection() {
   });
 
   return (
-    <section className="py-20">
+    <section id="data-analysis" className="py-20">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-2 text-gray-100">
           Akademik Başarı Analizi

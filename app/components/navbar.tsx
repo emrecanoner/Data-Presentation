@@ -21,6 +21,16 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Smooth scroll fonksiyonu eklendi
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Eğer hash link ise
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      element?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const menuItems: MenuItem[] = [
     { label: 'Ana Sayfa', href: '/' },
     { label: 'Proje Özeti', href: '#summary' },
@@ -59,6 +69,7 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleClick(e, item.href)} // Click handler eklendi
                 className={`text-gray-300 hover:text-white transition-colors duration-200 
                   text-sm font-medium ${pathname === item.href ? 'text-white' : ''}`}
               >
@@ -67,11 +78,12 @@ export function Navbar() {
             ))}
             <a
               href="#contact"
+              onClick={(e) => handleClick(e, '#contact')} // Contact için de eklendi
               className="px-5 py-2.5 text-sm text-white/90 hover:text-white
                 border border-gray-700 hover:border-gray-600 rounded-lg
                 transition-colors duration-200"
             >
-              İletişim
+              Kapanış
             </a>
           </div>
         </div>

@@ -1,10 +1,25 @@
+'use client'
+import { useState, useEffect } from 'react';
 import { PROJECT_DATA } from '@/app/constants/projectData'
 import { StatsSection } from '@/app/components/statsSection'
 import SummarySection from '@/app/components/summarySection'
 import { MethodologySection } from '@/app/components/methodologySection'
 import { AnalysisSection } from './components/analysisSection'
+import { fetchDatasetStats } from './utils/dataProcessor';
+import { LiteratureSection } from './components/literatureSection';
 
 export default function Home() {
+  const [stats, setStats] = useState<any>(null);
+
+  useEffect(() => {
+    const loadStats = async () => {
+      const data = await fetchDatasetStats();
+      setStats(data);
+    };
+    
+    loadStats();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Hero Section */}
@@ -137,6 +152,7 @@ export default function Home() {
       <SummarySection />
       <AnalysisSection />
       <MethodologySection />
+      <LiteratureSection />
     </div>
   )
 }
