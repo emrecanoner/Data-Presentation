@@ -12,6 +12,7 @@
 # next.js
 /.next/
 /out/
+!out/_next/static/
 
 # production
 /build
