@@ -7,6 +7,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: /RealTimeStudentSuccessPredictionSystem
 
     steps:
       - name: Checkout
@@ -25,6 +27,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /RealTimeStudentSuccessPredictionSystem
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

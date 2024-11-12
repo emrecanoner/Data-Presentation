@@ -1,13 +1,12 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Navbar } from '@/app/components/navbar'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Öğrenci Başarı Analizi',
-  description: 'Zamansal analiz ile öğrenci başarısı tahmini',
+  title: 'Student Success Prediction',
+  description: 'Real-time student success prediction system',
 }
 
 export default function RootLayout({
@@ -16,13 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr">
-      <body className={inter.className}>
-        <Navbar />
-        <main className="pt-16">
-          {children}
-        </main>
-      </body>
+    <html lang="en">
+      <head>
+        <link 
+          rel="stylesheet" 
+          href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/globals.css`}
+        />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 } 

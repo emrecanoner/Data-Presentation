@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/RealTimeStudentSuccessPredictionSystem'
+  basePath: '/RealTimeStudentSuccessPredictionSystem',
+  assetPrefix: '/RealTimeStudentSuccessPredictionSystem/',
 }
 
 module.exports = nextConfig 
