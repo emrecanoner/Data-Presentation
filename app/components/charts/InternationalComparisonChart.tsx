@@ -1,6 +1,6 @@
 'use client'
 import { Card, Title, Text } from "@tremor/react"
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 
 type Props = {
   data: {
@@ -16,71 +16,80 @@ type Props = {
 };
 
 export function InternationalComparisonChart({ data }: Props) {
-  if (!data) {
-    return (
-      <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
-        <Title className="text-gray-100 text-lg">Uluslararası/Yerel Karşılaştırma</Title>
-        <Text className="text-gray-400 text-xs">Veri yükleniyor...</Text>
-      </Card>
-    );
-  }
+  if (!data) return null;
 
-  const comparisonData = [
+  const chartData = [
     {
-      metric: 'Mezuniyet Oranı',
-      uluslararası: Number(((data.graduateCount / data.studentCount) * 100).toFixed(1)),
-      yerel: Number(((data.graduateCount / (data.studentCount - data.internationalCount)) * 100).toFixed(1))
+      name: "Uluslararası",
+      toplam: data.internationalCount,
+      mezun: Math.round(data.internationalCount * (data.graduateCount / data.studentCount)),
+      burslu: Math.round(data.internationalCount * (data.scholarshipCount / data.studentCount))
     },
     {
-      metric: 'Burslu Oranı',
-      uluslararası: Number(((data.scholarshipCount / data.internationalCount) * 100).toFixed(1)),
-      yerel: Number(((data.scholarshipCount / (data.studentCount - data.internationalCount)) * 100).toFixed(1))
-    },
-    {
-      metric: 'Ortalama Yaş',
-      uluslararası: data.averageAge + 1,
-      yerel: data.averageAge
-    },
-    {
-      metric: 'Dönem Başarısı',
-      uluslararası: Number(((data.graduateCount / data.internationalCount) * data.semesterCount).toFixed(1)),
-      yerel: Number(((data.graduateCount / (data.studentCount - data.internationalCount)) * data.semesterCount).toFixed(1))
+      name: "Yerel",
+      toplam: data.studentCount - data.internationalCount,
+      mezun: data.graduateCount - Math.round(data.internationalCount * (data.graduateCount / data.studentCount)),
+      burslu: data.scholarshipCount - Math.round(data.internationalCount * (data.scholarshipCount / data.studentCount))
     }
   ];
 
   return (
     <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
-      <Title className="text-gray-100 text-lg">Uluslararası/Yerel Karşılaştırma</Title>
+      <Title className="text-gray-100 text-lg">Öğrenci Grubu Karşılaştırması</Title>
       <Text className="text-gray-400 text-xs mb-6">
-        Öğrenci grupları arasındaki performans karşılaştırması
+        Uluslararası ve yerel öğrenci dağılımı
       </Text>
 
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart data={comparisonData}>
-            <PolarGrid stroke="#374151" />
-            <PolarAngleAxis 
-              dataKey="metric" 
+          <BarChart data={chartData} layout="vertical">
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis 
+              type="number"
               stroke="#9ca3af"
               tick={{ fill: '#9ca3af' }}
             />
-            <PolarRadiusAxis stroke="#9ca3af" />
-            <Radar
-              name="Uluslararası"
-              dataKey="uluslararası"
-              stroke="#06b6d4"
-              fill="#06b6d4"
-              fillOpacity={0.3}
+            <YAxis 
+              type="category"
+              dataKey="name"
+              stroke="#9ca3af"
+              tick={{ 
+                fill: '#9ca3af',
+                fontSize: '14px',
+                fontWeight: '500'
+              }}
+              width={100}
             />
-            <Radar
-              name="Yerel"
-              dataKey="yerel"
-              stroke="#f43f5e"
-              fill="#f43f5e"
-              fillOpacity={0.3}
+            <Tooltip 
+              contentStyle={{ 
+                backgroundColor: '#1f2937', 
+                border: '1px solid #374151',
+                borderRadius: '0.375rem'
+              }}
             />
-            <Legend />
-          </RadarChart>
+            <Legend 
+              verticalAlign="top"
+              height={36}
+            />
+            <Bar 
+              dataKey="toplam" 
+              name="Toplam" 
+              fill="#06b6d4" 
+              radius={[0, 4, 4, 0]}
+            />
+            <Bar 
+              dataKey="mezun" 
+              name="Mezun" 
+              fill="#0ea5e9" 
+              radius={[0, 4, 4, 0]}
+            />
+            <Bar 
+              dataKey="burslu" 
+              name="Burslu" 
+              fill="#3b82f6" 
+              radius={[0, 4, 4, 0]}
+            />
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </Card>

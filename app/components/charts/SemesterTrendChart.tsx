@@ -1,6 +1,6 @@
 'use client'
 import { Card, Title, Text } from "@tremor/react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
   data: {
@@ -16,41 +16,45 @@ type Props = {
 };
 
 export function SemesterTrendChart({ data }: Props) {
-  if (!data) {
-    return (
-      <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
-        <Title className="text-gray-100 text-lg">Dönemsel Başarı Trendi</Title>
-        <Text className="text-gray-400 text-xs">Veri yükleniyor...</Text>
-      </Card>
-    );
-  }
+  if (!data) return null;
 
-  // Her dönem için yaklaşık başarı oranı hesaplama
-  const semesterData = Array.from({ length: data.semesterCount }, (_, i) => {
-    const semester = i + 1;
-    const totalStudents = Math.round(data.studentCount * (1 - (i * 0.1))); // Her dönem %10 azalma
-    const graduates = Math.round(data.graduateCount * (semester / data.semesterCount));
-    
-    return {
-      semester: `${semester}. Dönem`,
-      başarıOranı: Number(((graduates / totalStudents) * 100).toFixed(1)),
-      öğrenciSayısı: totalStudents
-    };
-  });
+  // Daha basit ve anlaşılır dönem verisi
+  const semesterData = [
+    {
+      name: "1. Dönem",
+      aktifÖğrenci: data.studentCount,
+      bırakanÖğrenci: 0
+    },
+    {
+      name: "2. Dönem",
+      aktifÖğrenci: Math.round(data.studentCount * 0.9),
+      bırakanÖğrenci: Math.round(data.dropoutCount * 0.3)
+    },
+    {
+      name: "3. Dönem",
+      aktifÖğrenci: Math.round(data.studentCount * 0.8),
+      bırakanÖğrenci: Math.round(data.dropoutCount * 0.6)
+    },
+    {
+      name: "4. Dönem",
+      aktifÖğrenci: Math.round(data.studentCount * 0.7),
+      bırakanÖğrenci: data.dropoutCount
+    }
+  ];
 
   return (
     <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
-      <Title className="text-gray-100 text-lg">Dönemsel Başarı Trendi</Title>
+      <Title className="text-gray-100 text-lg">Dönemsel Öğrenci Durumu</Title>
       <Text className="text-gray-400 text-xs mb-6">
-        Dönemlere göre mezuniyet oranları
+        Dönemlere göre aktif ve ayrılan öğrenci sayıları
       </Text>
 
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={semesterData}>
+          <BarChart data={semesterData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis 
-              dataKey="semester" 
+              dataKey="name" 
               stroke="#9ca3af"
               tick={{ fill: '#9ca3af' }}
             />
@@ -64,29 +68,21 @@ export function SemesterTrendChart({ data }: Props) {
                 border: '1px solid #374151',
                 borderRadius: '0.375rem'
               }}
-              itemStyle={{ color: '#9ca3af' }}
-              labelStyle={{ color: '#9ca3af', marginBottom: '0.5rem' }}
             />
             <Legend />
-            <Line 
-              type="monotone" 
-              dataKey="başarıOranı" 
-              name="Başarı Oranı (%)"
-              stroke="#06b6d4" 
-              strokeWidth={2}
-              dot={{ fill: '#06b6d4', r: 4 }}
-              activeDot={{ r: 6, fill: '#06b6d4' }}
+            <Bar 
+              dataKey="aktifÖğrenci" 
+              name="Aktif Öğrenci" 
+              fill="#06b6d4" 
+              radius={[4, 4, 0, 0]}
             />
-            <Line 
-              type="monotone" 
-              dataKey="öğrenciSayısı" 
-              name="Öğrenci Sayısı"
-              stroke="#f43f5e"
-              strokeWidth={2}
-              dot={{ fill: '#f43f5e', r: 4 }}
-              activeDot={{ r: 6, fill: '#f43f5e' }}
+            <Bar 
+              dataKey="bırakanÖğrenci" 
+              name="Bırakan Öğrenci" 
+              fill="#f43f5e" 
+              radius={[4, 4, 0, 0]}
             />
-          </LineChart>
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </Card>
