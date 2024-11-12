@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate-stats && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && touch out/.nojekyll",
+    "generate-stats": "ts-node scripts/convertCsvToJson.ts"
   },
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",
@@ -15,6 +17,7 @@
     "@types/papaparse": "^5.3.15",
     "chart.js": "^4.4.6",
     "csv-parse": "^5.5.6",
+    "csv-parser": "^3.0.0",
     "fs": "^0.0.1-security",
     "next": "15.0.3",
     "papaparse": "^5.4.1",

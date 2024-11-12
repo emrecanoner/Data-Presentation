@@ -21,39 +21,24 @@ export function AnalysisSection() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchDatasetStats()
-      .then(data => {
-        console.log('Ham veri:', data);
-        console.log('data.data:', data.data);
-        console.log('Veri tipi:', typeof data);
-        console.log('data.data tipi:', typeof data.data);
-        setData(data);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/RealTimeStudentSuccessPredictionSystem/stats.json');
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
         setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
-  console.log('Render sırasında data:', data);
-
   if (loading) {
-    return (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-gray-400">Yükleniyor...</div>
-      </div>
-    );
+    return <div>Loading...</div>;
   }
-
-  if (!data) return null;
-
-  console.log('Chart Data:', {
-    scholarshipCount: data.scholarshipCount,
-    graduateCount: data.graduateCount,
-    dropoutCount: data.dropoutCount,
-    studentCount: data.studentCount
-  });
 
   return (
     <section id="data-analysis" className="py-20">
@@ -70,14 +55,14 @@ export function AnalysisSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <GenderSuccessChart data={data} />
-          <ScholarshipPerformanceChart data={data} />
-          <AttendanceAnalysisChart data={data} />
-          <CourseSuccessRateChart data={data} />
-          <SemesterTrendChart data={data} />
-          <InternationalComparisonChart data={data} />
-          <AgeAnalysisChart data={data} />
-          <AcademicDistributionChart data={data} />
+          <GenderSuccessChart data={data?.data} />
+          <ScholarshipPerformanceChart data={data?.data} />
+          <AttendanceAnalysisChart data={data?.data} />
+          <CourseSuccessRateChart data={data?.data} />
+          <AcademicDistributionChart data={data?.data} />
+          <AgeAnalysisChart data={data?.data} />
+          <InternationalComparisonChart data={data?.data} />
+          <SemesterTrendChart data={data?.data} />
         </div>
 
         <div className="mb-6">
