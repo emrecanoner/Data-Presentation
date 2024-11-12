@@ -1,14 +1,1 @@
-{
-  "totalStudents": 4424,
-  "ageDistribution": {
-    "18-20": 0,
-    "21-23": 0,
-    "24+": 4424
-  },
-  "genderDistribution": {
-    "male": 0,
-    "female": 0
-  },
-  "scholarshipCount": 0,
-  "internationalCount": 0
-}
+{"data":{"averageAge":23,"dropoutCount":1421,"graduateCount":2209,"internationalCount":110,"scholarshipCount":1099,"semesterCount":1,"studentCount":4424,"variableCount":37}}
