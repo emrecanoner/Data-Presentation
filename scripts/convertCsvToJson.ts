@@ -1,70 +1,25 @@
 const fs = require('fs');
-const csv = require('csv-parser');
 const path = require('path');
 
-const results: any[] = [];
+// CSV dosyasını oku
+const csvPath = path.join(process.cwd(), 'data', 'data.csv');
+const outputPath = path.join(process.cwd(), 'public', 'stats.json');
 
-fs.createReadStream(path.join(process.cwd(), 'data', 'data.csv'))
-  .pipe(csv({ 
-    separator: ';' // CSV ayırıcısını noktalı virgül olarak belirtiyoruz
-  }))
-  .on('data', (data: any) => {
-    results.push(data);
-  })
-  .on('end', () => {
-    const stats = calculateStats(results);
-    fs.writeFileSync(
-      path.join(process.cwd(), 'public', 'stats.json'),
-      JSON.stringify(stats)
-    );
-    console.log('Stats generated successfully!');
-  });
+const csvData = fs.readFileSync(csvPath, 'utf-8');
+const rows = csvData.split('\n').filter((row: string) => row.trim());
 
-function calculateStats(data: any[]) {
-  // Toplam öğrenci sayısı
-  const studentCount = data.length;
+// İstatistikleri hesapla
+const stats = {
+    studentCount: rows.length,
+    graduateCount: rows.filter((row: string) => row.includes('Graduate')).length,
+    dropoutCount: rows.filter((row: string) => row.includes('Dropout')).length,
+    scholarshipCount: rows.filter((row: string) => row.split(';')[19] === '1').length, // scholarship holder
+    internationalCount: rows.filter((row: string) => row.split(';')[21] === '1').length, // international
+    averageAge: Math.round(rows.reduce((sum: number, row: string) => sum + parseInt(row.split(';')[20]), 0) / rows.length), // age at enrollment
+    semesterCount: new Set(rows.map((row: string) => row.split(';')[2])).size, // application order as semester
+    variableCount: rows[0].split(';').length
+};
 
-  // Mezun ve bırakan öğrenci sayıları
-  const graduateCount = data.filter(student => student.Target === 'Graduate').length;
-  const dropoutCount = data.filter(student => student.Target === 'Dropout').length;
-
-  // Burslu öğrenci sayısı
-  const scholarshipCount = data.filter(student => student['Scholarship holder'] === '1').length;
-
-  // Uluslararası öğrenci sayısı
-  const internationalCount = data.filter(student => student.International === '1').length;
-
-  // Ortalama yaş hesaplama
-  const totalAge = data.reduce((sum, student) => sum + parseInt(student['Age at enrollment']), 0);
-  const averageAge = Math.round(totalAge / studentCount);
-
-  // Dönem sayısı (1. ve 2. dönem var)
-  const semesterCount = 2;
-
-  // Değişken sayısı (CSV'deki sütun sayısı)
-  const variableCount = Object.keys(data[0]).length;
-
-  console.log({
-    studentCount,
-    graduateCount,
-    dropoutCount,
-    scholarshipCount,
-    internationalCount,
-    averageAge,
-    semesterCount,
-    variableCount
-  });
-
-  return {
-    data: {
-      averageAge,
-      dropoutCount,
-      graduateCount,
-      internationalCount,
-      scholarshipCount,
-      semesterCount,
-      studentCount,
-      variableCount
-    }
-  };
-} 
+// JSON dosyasını oluştur
+fs.writeFileSync(outputPath, JSON.stringify(stats, null, 2));
+console.log('Stats generated successfully:', stats); 
