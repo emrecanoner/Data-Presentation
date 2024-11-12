@@ -21,9 +21,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          rm -rf node_modules .next
           npm install
           npm install -D tailwindcss postcss autoprefixer ts-node csv-parser
-          npm install @tremor/react react-icons
+          npm install @tremor/react react-icons @headlessui/react @headlessui/tailwindcss
 
       - name: Build
         run: npm run build

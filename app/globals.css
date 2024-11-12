@@ -11,3 +11,11 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
 }
+
+[data-tremor-input] {
+  @apply bg-gray-800 border-gray-700;
+}
+
+[data-tremor-card] {
+  @apply bg-gray-800/30 backdrop-blur-sm border border-gray-700/30;
+}
