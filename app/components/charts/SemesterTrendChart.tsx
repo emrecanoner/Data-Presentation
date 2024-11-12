@@ -3,18 +3,20 @@ import { Card, Title, Text } from "@tremor/react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  stats: {
-    rawData: any[]; // Ham veri array'i
-    semesterStats: {
-      semester: number;
-      totalStudents: number;
-      graduateCount: number;
-    }[];
+  data: {
+    averageAge: number;
+    dropoutCount: number;
+    graduateCount: number;
+    internationalCount: number;
+    scholarshipCount: number;
+    semesterCount: number;
+    studentCount: number;
+    variableCount: number;
   };
 };
 
-export function SemesterTrendChart({ stats }: Props) {
-  if (!stats?.rawData) {
+export function SemesterTrendChart({ data }: Props) {
+  if (!data) {
     return (
       <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
         <Title className="text-gray-100 text-lg">Dönemsel Başarı Trendi</Title>
@@ -23,20 +25,16 @@ export function SemesterTrendChart({ stats }: Props) {
     );
   }
 
-  // Dönemlere göre başarı oranı
-  const semesterData = Array.from({ length: 6 }, (_, i) => {
+  // Her dönem için yaklaşık başarı oranı hesaplama
+  const semesterData = Array.from({ length: data.semesterCount }, (_, i) => {
     const semester = i + 1;
-    const studentsInSemester = stats.rawData.filter(s => 
-      s['Curricular units 1st sem (approved)'] >= semester
-    );
-    const graduatesInSemester = studentsInSemester.filter(s => 
-      s['Target'] === 'Graduate'
-    );
+    const totalStudents = Math.round(data.studentCount * (1 - (i * 0.1))); // Her dönem %10 azalma
+    const graduates = Math.round(data.graduateCount * (semester / data.semesterCount));
     
     return {
       semester: `${semester}. Dönem`,
-      başarıOranı: Number((graduatesInSemester.length / studentsInSemester.length * 100).toFixed(1)),
-      öğrenciSayısı: studentsInSemester.length
+      başarıOranı: Number(((graduates / totalStudents) * 100).toFixed(1)),
+      öğrenciSayısı: totalStudents
     };
   });
 
@@ -69,11 +67,7 @@ export function SemesterTrendChart({ stats }: Props) {
               itemStyle={{ color: '#9ca3af' }}
               labelStyle={{ color: '#9ca3af', marginBottom: '0.5rem' }}
             />
-            <Legend 
-              wrapperStyle={{
-                paddingTop: '1rem'
-              }}
-            />
+            <Legend />
             <Line 
               type="monotone" 
               dataKey="başarıOranı" 

@@ -2,6 +2,14 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { fetchDatasetStats } from '../utils/dataProcessor';
+import { GenderSuccessChart } from './charts/GenderSuccessChart';
+import { ScholarshipPerformanceChart } from './charts/ScholarshipPerformanceChart';
+import { AttendanceAnalysisChart } from './charts/AttendanceAnalysisChart';
+import { CourseSuccessRateChart } from './charts/CourseSuccessRateChart';
+import { SemesterTrendChart } from './charts/SemesterTrendChart';
+import { InternationalComparisonChart } from './charts/InternationalComparisonChart';
+import { AgeAnalysisChart } from './charts/AgeAnalysisChart';
+import { AcademicDistributionChart } from './charts/AcademicDistributionChart';
 
 const AcademicPerformanceChart = dynamic(
   () => import('./charts/AcademicPerformanceChart').then(mod => mod.AcademicPerformanceChart),
@@ -15,7 +23,10 @@ export function AnalysisSection() {
   useEffect(() => {
     fetchDatasetStats()
       .then(data => {
-        console.log('API Response:', data);
+        console.log('Ham veri:', data);
+        console.log('data.data:', data.data);
+        console.log('Veri tipi:', typeof data);
+        console.log('data.data tipi:', typeof data.data);
         setData(data);
         setLoading(false);
       })
@@ -24,6 +35,8 @@ export function AnalysisSection() {
         setLoading(false);
       });
   }, []);
+
+  console.log('Render sırasında data:', data);
 
   if (loading) {
     return (
@@ -52,7 +65,26 @@ export function AnalysisSection() {
           Öğrenci Başarısını Etkileyen Faktörler
         </p>
 
-        <AcademicPerformanceChart stats={data} />
+        <div className="mb-6">
+          <AcademicPerformanceChart stats={data} />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <GenderSuccessChart data={data} />
+          <ScholarshipPerformanceChart data={data} />
+          <AttendanceAnalysisChart data={data} />
+          <CourseSuccessRateChart data={data} />
+          <SemesterTrendChart data={data} />
+          <InternationalComparisonChart data={data} />
+          <AgeAnalysisChart data={data} />
+          <AcademicDistributionChart data={data} />
+        </div>
+
+        <div className="mb-6">
+          <pre className="text-white">
+            {JSON.stringify(data?.data, null, 2)}
+          </pre>
+        </div>
       </div>
     </section>
   );
