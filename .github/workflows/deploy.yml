@@ -29,12 +29,12 @@ jobs:
         
       - name: Verify Stats File
         run: |
-          if [ ! -f public/stats.json ]; then
+          if [ ! -f stats.json ]; then
             echo "stats.json was not created!"
             exit 1
           fi
           echo "Content of stats.json:"
-          cat public/stats.json
+          cat stats.json
 
       - name: Build
         run: npm run build

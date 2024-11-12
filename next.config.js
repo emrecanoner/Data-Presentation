@@ -12,7 +12,7 @@ const nextConfig = {
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
     if (isServer) {
-      const statsPath = path.join(process.cwd(), 'public', 'stats.json');
+      const statsPath = path.join(process.cwd(), 'stats.json');
       if (!fs.existsSync(statsPath)) {
         console.log('stats.json not found, creating sample data...');
         require('./scripts/convertCsvToJson.ts');
