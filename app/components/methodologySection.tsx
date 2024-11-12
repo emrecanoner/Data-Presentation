@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { fetchDatasetStats } from '../utils/dataProcessor'
+import { fetchDatasetStats } from '@/app/utils/dataProcessor'
 import { FiDatabase, FiTrendingUp, FiAward, FiUserCheck, FiAlertTriangle } from 'react-icons/fi'
 
 export function MethodologySection() {

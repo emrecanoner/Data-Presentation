@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { PROJECT_DATA } from '@/app/constants/projectData'
-import { fetchDatasetStats } from '@/app/utils/dataProcessor'
+import { fetchDatasetStats } from '../utils/dataProcessor'
 import { FiUsers, FiBarChart2, FiUserMinus, FiUserCheck, 
          FiAward, FiGlobe, FiCalendar, FiUser } from 'react-icons/fi'
 
