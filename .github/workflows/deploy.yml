@@ -22,19 +22,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Generate Stats
-        run: |
-          npm run generate-stats
-        
-      - name: Verify Stats File
-        run: |
-          if [ ! -f stats.json ]; then
-            echo "stats.json was not created!"
-            exit 1
-          fi
-          echo "Content of stats.json:"
-          cat stats.json
-
       - name: Build
         run: npm run build
 
