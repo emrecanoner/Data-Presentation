@@ -23,7 +23,7 @@ jobs:
         run: |
           npm install
           npm install -D tailwindcss postcss autoprefixer ts-node csv-parser
-          npm install @tremor/react
+          npm install @tremor/react react-icons
 
       - name: Build
         run: npm run build
