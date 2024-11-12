@@ -1,13 +1,12 @@
-import fs from 'fs';
-import csv from 'csv-parser';
-import path from 'path';
+const fs = require('fs');
+const csv = require('csv-parser');
+const path = require('path');
 
 interface StudentData {
   age: number;
   gender: string;
   scholarship: string;
   international: string;
-  // diğer alanları da ekleyin
 }
 
 const results: StudentData[] = [];
