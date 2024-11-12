@@ -1,5 +1,5 @@
 1:HL["/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","style",{"crossOrigin":""}]
-0:["XLGDruVeFYb8lO_X2ipxv",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["8-Xc3MMrFos0w4_731Tay",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[5084,["569","static/chunks/569-85d55f8854f3c8ef.js","185","static/chunks/app/layout-5d9dad3c5b927e17.js"],"Navbar"]
 5:I[6954,[],""]
 6:I[1598,["601","static/chunks/app/error-b9b3b4afd15652c7.js"],""]
