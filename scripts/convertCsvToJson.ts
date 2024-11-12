@@ -14,7 +14,7 @@ fs.createReadStream(path.join(process.cwd(), 'data', 'data.csv'))
   .on('end', () => {
     const stats = calculateStats(results);
     fs.writeFileSync(
-      path.join(process.cwd(), 'public', 'stats.json'),
+      path.join(process.cwd(), 'stats.json'),
       JSON.stringify(stats)
     );
     console.log('Stats generated successfully!');
@@ -38,12 +38,12 @@ function calculateStats(data: any[]) {
   const totalAge = data.reduce((sum, student) => sum + parseInt(student['Age at enrollment']), 0);
   const averageAge = Math.round(totalAge / studentCount);
 
-  // Dönem sayılarını kontrol edelim
-  const uniqueSemesters = [...new Set(data.map(student => student.semester))];
-  console.log('Mevcut dönemler:', uniqueSemesters);
-  
-  // Dönem sayısı hesaplama
-  const semesterCount = uniqueSemesters.length;
+  // Tüm dönemleri benzersiz olarak topla
+  const allSemesters = new Set(data.map(student => student.semester));
+  const semesterCount = allSemesters.size;
+
+  console.log('Benzersiz dönemler:', Array.from(allSemesters).sort((a, b) => a - b));
+  console.log('Toplam dönem sayısı:', semesterCount);
 
   // Değişken sayısı (CSV'deki sütun sayısı)
   const variableCount = Object.keys(data[0]).length;
