@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate-stats && next build",
+    "build": "next build && npm run copy-files",
     "start": "next start",
     "lint": "next lint",
     "deploy": "next build && touch out/.nojekyll",
-    "generate-stats": "ts-node scripts/convertCsvToJson.ts"
+    "generate-stats": "ts-node scripts/convertCsvToJson.ts",
+    "copy-files": "cp -r .next/static out/_next/static"
   },
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",

@@ -5,7 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '/RealTimeStudentSuccessPredictionSystem',
-  assetPrefix: '/RealTimeStudentSuccessPredictionSystem/',
+  assetPrefix: '/RealTimeStudentSuccessPredictionSystem',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig 

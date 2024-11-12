@@ -15,14 +15,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link 
-          rel="stylesheet" 
-          href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/globals.css`}
-        />
-      </head>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-gray-900 text-gray-100`}>
+        {children}
+      </body>
     </html>
   )
 } 
