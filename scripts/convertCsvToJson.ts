@@ -1,12 +1,12 @@
-import fs from 'fs';
-import csv from 'csv-parser';
-import path from 'path';
+const fs = require('fs');
+const csv = require('csv-parser');
+const path = require('path');
 
 const results: any[] = [];
 
 fs.createReadStream(path.join(process.cwd(), 'data', 'data.csv'))
   .pipe(csv())
-  .on('data', (data) => results.push(data))
+  .on('data', (data: any) => results.push(data))
   .on('end', () => {
     // İstatistikleri hesapla
     const stats = calculateStats(results);
@@ -37,8 +37,12 @@ function calculateStats(data: any[]) {
   const totalAge = data.reduce((sum, student) => sum + parseInt(student.age), 0);
   const averageAge = Math.round(totalAge / studentCount);
 
-  // Dönem sayısı hesaplama (CSV'den)
-  const semesterCount = Math.max(...data.map(student => parseInt(student.semester)));
+  // Dönem sayılarını kontrol edelim
+  const uniqueSemesters = [...new Set(data.map(student => student.semester))];
+  console.log('Mevcut dönemler:', uniqueSemesters);
+  
+  // Dönem sayısı hesaplama
+  const semesterCount = uniqueSemesters.length;
 
   // Değişken sayısı (CSV'deki sütun sayısı)
   const variableCount = Object.keys(data[0]).length;
