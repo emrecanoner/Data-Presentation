@@ -1,19 +1,19 @@
-import fs from 'fs';
-import csv from 'csv-parser';
-import path from 'path';
+const fs = require('fs');
+const csv = require('csv-parser');
+const path = require('path');
 
 const results: any[] = [];
 
 fs.createReadStream(path.join(process.cwd(), 'data', 'data.csv'))
   .pipe(csv())
-  .on('data', (data) => results.push(data))
+  .on('data', (data: any) => results.push(data))
   .on('end', () => {
     // İstatistikleri hesapla
     const stats = calculateStats(results);
     
     // JSON dosyası olarak kaydet
     fs.writeFileSync(
-      path.join(process.cwd(), 'public', 'stats.json'),
+      path.join(process.cwd(), 'stats.json'),
       JSON.stringify(stats)
     );
     console.log('Stats generated successfully!');
