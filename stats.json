@@ -1,0 +1,8 @@
+{
+  "studentCount": 100,
+  "dropoutCount": 20,
+  "graduateCount": 80,
+  "averageAge": 22,
+  "internationalCount": 15,
+  "scholarshipCount": 30
+}
