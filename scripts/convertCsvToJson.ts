@@ -38,11 +38,20 @@ function calculateStats(data: any[]) {
   const totalAge = data.reduce((sum, student) => sum + parseInt(student['Age at enrollment']), 0);
   const averageAge = Math.round(totalAge / studentCount);
 
-  // Tüm dönemleri benzersiz olarak topla
-  const allSemesters = new Set(data.map(student => student.semester));
-  const semesterCount = allSemesters.size;
+  // Her bir öğrencinin dönem bilgisini al
+  const semesters = data.map(student => student.semester);
 
-  console.log('Benzersiz dönemler:', Array.from(allSemesters).sort((a, b) => a - b));
+  // Dönemleri küçükten büyüğe sırala
+  const sortedSemesters = semesters.sort((a, b) => a - b);
+
+  // Kaç farklı dönem olduğunu bul
+  const semesterCount = sortedSemesters.filter((semester, index) => 
+    sortedSemesters.indexOf(semester) === index
+  ).length;
+
+  console.log('Mevcut dönemler:', sortedSemesters.filter((semester, index) => 
+    sortedSemesters.indexOf(semester) === index
+  ));
   console.log('Toplam dönem sayısı:', semesterCount);
 
   // Değişken sayısı (CSV'deki sütun sayısı)

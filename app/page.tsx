@@ -13,7 +13,7 @@ export default function Home() {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    fetch('/RealTimeStudentSuccessPredictionSystem/public/stats.json')
+    fetch('/RealTimeStudentSuccessPredictionSystem/stats.json')
       .then(res => res.json())
       .then(data => setStats(data))
       .catch(err => console.error('Error loading stats:', err));
