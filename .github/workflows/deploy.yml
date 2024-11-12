@@ -20,17 +20,24 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
+        run: npm install
+
+      - name: Generate Stats
         run: |
-          rm -rf node_modules .next out
-          npm install
-          npm install -D tailwindcss postcss autoprefixer ts-node csv-parser
-          npm install @tremor/react react-icons @headlessui/react @headlessui/tailwindcss
+          mkdir -p public
+          npm run generate-stats
+        
+      - name: Verify Stats File
+        run: |
+          if [ ! -f public/stats.json ]; then
+            echo "stats.json was not created!"
+            exit 1
+          fi
+          echo "Content of stats.json:"
+          cat public/stats.json
 
       - name: Build
-        run: |
-          npm run build
-          touch out/.nojekyll
-          cp -r .next/static out/_next/static || true
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
@@ -38,4 +45,3 @@ jobs:
           folder: out
           branch: gh-pages
           token: ${{ secrets.GH_TOKEN }}
-          clean: true

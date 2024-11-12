@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && touch out/.nojekyll && cp -r .next/static out/_next/static",
+    "build": "npm run generate-stats && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-stats": "ts-node scripts/convertCsvToJson.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
