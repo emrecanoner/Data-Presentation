@@ -13,12 +13,10 @@ export default function Home() {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    const loadStats = async () => {
-      const data = await fetchDatasetStats();
-      setStats(data);
-    };
-    
-    loadStats();
+    fetch('/RealTimeStudentSuccessPredictionSystem/public/stats.json')
+      .then(res => res.json())
+      .then(data => setStats(data))
+      .catch(err => console.error('Error loading stats:', err));
   }, []);
 
   return (
