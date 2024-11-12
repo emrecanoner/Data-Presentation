@@ -77,8 +77,8 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
-              onClick={(e) => handleClick(e, '#contact')} // Contact için de eklendi
+              href="#end"
+              onClick={(e) => handleClick(e, '#end')} // Contact için de eklendi
               className="px-5 py-2.5 text-sm text-white/90 hover:text-white
                 border border-gray-700 hover:border-gray-600 rounded-lg
                 transition-colors duration-200"

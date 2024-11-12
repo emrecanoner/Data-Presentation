@@ -7,6 +7,7 @@ import { MethodologySection } from '@/app/components/methodologySection'
 import { AnalysisSection } from './components/analysisSection'
 import { fetchDatasetStats } from './utils/dataProcessor';
 import { LiteratureSection } from './components/literatureSection';
+import { ThanksSection } from './components/thanksSection';
 
 export default function Home() {
   const [stats, setStats] = useState<any>(null);
@@ -153,6 +154,7 @@ export default function Home() {
       <AnalysisSection />
       <MethodologySection />
       <LiteratureSection />
+      <ThanksSection />
     </div>
   )
 }
