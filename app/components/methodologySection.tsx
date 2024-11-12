@@ -1,18 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { fetchDatasetStats } from '../utils/dataProcessor'
-
-type MethodologyStats = {
-  studentCount: number;
-  graduateCount: number;
-  dropoutCount: number;
-  averageAge: number;
-  scholarshipCount: number;
-  internationalCount: number;
-}
+import { FiDatabase, FiTrendingUp, FiAward, FiUserCheck, FiAlertTriangle } from 'react-icons/fi'
 
 export function MethodologySection() {
-  const [stats, setStats] = useState<MethodologyStats | null>(null)
+  const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -36,72 +28,92 @@ export function MethodologySection() {
   return (
     <section id="methodology" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800/50">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Metodoloji ve Bulgular</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">Metodoloji ve Bulgular</h2>
+        <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
+          Öğrenci başarısını etkileyen faktörlerin kapsamlı analizi ve risk faktörlerinin belirlenmesi
+        </p>
         
         <div className="grid gap-8 md:grid-cols-2">
-          {/* Akademik Başarı Analizi */}
+          {/* Veri Toplama ve Hazırlama */}
           <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-gray-100 mb-4">Akademik Başarı Oranları</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400">Mezuniyet Oranı</span>
-                <span className="text-green-400 font-semibold">
-                  {Math.round((stats.graduateCount / stats.studentCount) * 100)}%
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400">Bırakma Oranı</span>
-                <span className="text-red-400 font-semibold">
-                  {Math.round((stats.dropoutCount / stats.studentCount) * 100)}%
-                </span>
-              </div>
+            <div className="flex items-center mb-4">
+              <FiDatabase className="w-6 h-6 text-blue-400 mr-3" />
+              <h3 className="text-xl font-semibold text-gray-100">Veri Toplama ve Hazırlama</h3>
             </div>
+            <ul className="space-y-3 text-gray-400">
+              <li>• {stats.studentCount} öğrencinin verisi analiz edildi</li>
+              <li>• Demografik, akademik ve sosyoekonomik veriler</li>
+              <li>• Veri temizleme ve normalizasyon işlemleri</li>
+              <li>• Eksik veri analizi ve düzeltme</li>
+            </ul>
           </div>
 
-          {/* Öğrenci Profili */}
+          {/* Analiz Yöntemleri */}
           <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-gray-100 mb-4">Öğrenci Profili</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400">Ortalama Yaş</span>
-                <span className="text-blue-400 font-semibold">{stats.averageAge}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400">Burslu Öğrenci Oranı</span>
-                <span className="text-yellow-400 font-semibold">
-                  {Math.round((stats.scholarshipCount / stats.studentCount) * 100)}%
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400">Uluslararası Öğrenci Oranı</span>
-                <span className="text-purple-400 font-semibold">
-                  {Math.round((stats.internationalCount / stats.studentCount) * 100)}%
-                </span>
-              </div>
+            <div className="flex items-center mb-4">
+              <FiTrendingUp className="w-6 h-6 text-purple-400 mr-3" />
+              <h3 className="text-xl font-semibold text-gray-100">Analiz Yöntemleri</h3>
             </div>
+            <ul className="space-y-3 text-gray-400">
+              <li>• İstatistiksel analiz ve hipotez testleri</li>
+              <li>• Korelasyon analizi</li>
+              <li>• Zaman serisi analizi</li>
+              <li>• Makine öğrenmesi modelleri</li>
+            </ul>
           </div>
 
-          {/* Metodoloji Açıklaması */}
+          {/* Başarı Faktörleri */}
+          <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
+            <div className="flex items-center mb-4">
+              <FiAward className="w-6 h-6 text-yellow-400 mr-3" />
+              <h3 className="text-xl font-semibold text-gray-100">Başarı Faktörleri</h3>
+            </div>
+            <ul className="space-y-3 text-gray-400">
+              <li>• Akademik geçmiş ve hazırbulunuşluk</li>
+              <li>• Sosyoekonomik faktörler</li>
+              <li>• Aile eğitim düzeyi</li>
+              <li>• Burs ve destek programları</li>
+            </ul>
+          </div>
+
+          {/* Risk Faktörleri */}
+          <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
+            <div className="flex items-center mb-4">
+              <FiAlertTriangle className="w-6 h-6 text-red-400 mr-3" />
+              <h3 className="text-xl font-semibold text-gray-100">Risk Faktörleri</h3>
+            </div>
+            <ul className="space-y-3 text-gray-400">
+              <li>• Düşük akademik performans göstergeleri</li>
+              <li>• Devamsızlık ve katılım sorunları</li>
+              <li>• Ekonomik zorluklar</li>
+              <li>• Uyum ve adaptasyon sorunları</li>
+            </ul>
+          </div>
+
+          {/* Bulgular ve Öneriler */}
           <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700 md:col-span-2">
-            <h3 className="text-xl font-semibold text-gray-100 mb-4">Araştırma Metodolojisi</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <h4 className="font-medium text-blue-400">Veri Toplama</h4>
-                <p className="text-gray-400 text-sm">
-                  {stats.studentCount} öğrencinin akademik ve demografik verileri analiz edildi.
-                </p>
+            <div className="flex items-center mb-4">
+              <FiUserCheck className="w-6 h-6 text-green-400 mr-3" />
+              <h3 className="text-xl font-semibold text-gray-100">Bulgular ve Öneriler</h3>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-medium text-green-400 mb-2">Temel Bulgular</h4>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li>• Akademik başarıda aile eğitim düzeyinin etkisi</li>
+                  <li>• Burs desteğinin başarıya pozitif etkisi</li>
+                  <li>• İlk yıl performansının mezuniyet üzerindeki etkisi</li>
+                  <li>• Sosyoekonomik faktörlerin okulu bırakma üzerindeki etkisi</li>
+                </ul>
               </div>
-              <div className="space-y-2">
-                <h4 className="font-medium text-purple-400">Analiz Yöntemi</h4>
-                <p className="text-gray-400 text-sm">
-                  İstatistiksel analiz ve korelasyon çalışmaları gerçekleştirildi.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-medium text-green-400">Sonuç Değerlendirme</h4>
-                <p className="text-gray-400 text-sm">
-                  Başarı faktörleri ve risk göstergeleri belirlendi.
-                </p>
+              <div>
+                <h4 className="font-medium text-green-400 mb-2">Öneriler</h4>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li>• Erken uyarı sistemlerinin geliştirilmesi</li>
+                  <li>• Akademik destek programlarının artırılması</li>
+                  <li>• Burs ve finansal destek olanaklarının genişletilmesi</li>
+                  <li>• Öğrenci mentörlük programlarının oluşturulması</li>
+                </ul>
               </div>
             </div>
           </div>

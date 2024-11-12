@@ -8,23 +8,13 @@ export async function GET() {
   try {
     const csvPath = path.join(process.cwd(), 'data', 'data.csv');
     
-    // Debug: Dosya yolunu kontrol et
-    console.log('CSV Path:', csvPath);
-    
     const fileContent = fs.readFileSync(csvPath, 'utf-8');
-    
-    // Debug: CSV içeriğinin ilk birkaç satırını kontrol et
-    console.log('CSV Content (first 100 chars):', fileContent.substring(0, 100));
 
     const { data } = Papa.parse<StudentData>(fileContent, {
       header: true,
       delimiter: ';',
       skipEmptyLines: true
     });
-
-    // Debug: Parse edilmiş verinin ilk elemanını kontrol et
-    console.log('Parsed Data First Row:', data[0]);
-    console.log('Total Rows:', data.length);
 
     const stats = {
       studentCount: data.length,
@@ -42,14 +32,11 @@ export async function GET() {
       )
     };
 
-    // Debug: Hesaplanan istatistikleri kontrol et
-    console.log('Calculated Stats:', stats);
-
     return NextResponse.json(stats);
   } catch (error) {
     console.error('Error in stats API:', error);
     return NextResponse.json(
-      { error: 'Failed to calculate stats', details: error.message },
+      { error: 'Failed to calculate stats', details: error },
       { status: 500 }
     );
   }
