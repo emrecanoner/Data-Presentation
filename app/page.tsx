@@ -2,6 +2,7 @@ import { PROJECT_DATA } from '@/app/constants/projectData'
 import { StatsSection } from '@/app/components/statsSection'
 import SummarySection from '@/app/components/summarySection'
 import { MethodologySection } from '@/app/components/methodologySection'
+import { AnalysisSection } from './components/analysisSection'
 
 export default function Home() {
   return (
@@ -134,6 +135,7 @@ export default function Home() {
       </section>
 
       <SummarySection />
+      <AnalysisSection />
       <MethodologySection />
     </div>
   )
