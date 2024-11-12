@@ -24,7 +24,6 @@ jobs:
 
       - name: Generate Stats
         run: |
-          mkdir -p public
           npm run generate-stats
         
       - name: Verify Stats File
