@@ -1,5 +1,5 @@
 1:HL["/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","style",{"crossOrigin":""}]
-0:["Ibbr7eiVFfeGw-7EKKhw0",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["k5_Dy4oXp2kkJzVRXgDK_",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/RealTimeStudentSuccessPredictionSystem/_next/static/css/1ee0aa76589783d5.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[6954,[],""]
 5:I[7264,[],""]
 7:I[8297,[],""]
