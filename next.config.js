@@ -5,7 +5,13 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '/RealTimeStudentSuccessPredictionSystem',
-  assetPrefix: '/RealTimeStudentSuccessPredictionSystem',
+  assetPrefix: '/RealTimeStudentSuccessPredictionSystem/',
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, path: false };
+    return config;
+  },
+  trailingSlash: true,
+  distDir: 'out',
 }
 
 module.exports = nextConfig 
