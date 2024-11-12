@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,8 +15,8 @@ type Props = {
   };
 };
 
-export function AgeAnalysisChart({ data }: Props) {
-  if (!data) {
+export function AgeAnalysisChart({ stats }: Props) {
+  if (!stats) {
     return (
       <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
         <Title className="text-gray-100 text-lg">Yaş Analizi</Title>
@@ -26,10 +26,10 @@ export function AgeAnalysisChart({ data }: Props) {
   }
 
   const ageGroups = [
-    { range: '18-20', mezun: Math.round(data.graduateCount * 0.3), bırakan: Math.round(data.dropoutCount * 0.2) },
-    { range: '21-23', mezun: Math.round(data.graduateCount * 0.4), bırakan: Math.round(data.dropoutCount * 0.3) },
-    { range: '24-26', mezun: Math.round(data.graduateCount * 0.2), bırakan: Math.round(data.dropoutCount * 0.3) },
-    { range: '27+', mezun: Math.round(data.graduateCount * 0.1), bırakan: Math.round(data.dropoutCount * 0.2) }
+    { range: '18-20', mezun: Math.round(stats.graduateCount * 0.3), bırakan: Math.round(stats.dropoutCount * 0.2) },
+    { range: '21-23', mezun: Math.round(stats.graduateCount * 0.4), bırakan: Math.round(stats.dropoutCount * 0.3) },
+    { range: '24-26', mezun: Math.round(stats.graduateCount * 0.2), bırakan: Math.round(stats.dropoutCount * 0.3) },
+    { range: '27+', mezun: Math.round(stats.graduateCount * 0.1), bırakan: Math.round(stats.dropoutCount * 0.2) }
   ];
 
   return (

@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { BarChart, Bar, Cell, Tooltip, Legend, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,8 +15,8 @@ type Props = {
   };
 };
 
-export function CourseSuccessRateChart({ data }: Props) {
-  if (!data) {
+export function CourseSuccessRateChart({ stats }: Props) {
+  if (!stats) {
     return (
       <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
         <Title className="text-gray-100 text-lg">Ders Başarı Oranları</Title>
@@ -29,15 +29,15 @@ export function CourseSuccessRateChart({ data }: Props) {
   const chartData = [
     {
       name: "Genel Başarı",
-      oran: Number(((data.graduateCount / data.studentCount) * 100).toFixed(1))
+      oran: Number(((stats.graduateCount / stats.studentCount) * 100).toFixed(1))
     },
     {
       name: "Burslu Başarı",
-      oran: Number(((data.scholarshipCount / data.studentCount) * 100).toFixed(1))
+      oran: Number(((stats.scholarshipCount / stats.studentCount) * 100).toFixed(1))
     },
     {
       name: "Uluslararası Başarı",
-      oran: Number(((data.internationalCount / data.studentCount) * 100).toFixed(1))
+      oran: Number(((stats.internationalCount / stats.studentCount) * 100).toFixed(1))
     }
   ];
 

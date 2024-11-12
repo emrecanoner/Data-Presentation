@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,30 +15,30 @@ type Props = {
   };
 };
 
-export function SemesterTrendChart({ data }: Props) {
-  if (!data) return null;
+export function SemesterTrendChart({ stats }: Props) {
+  if (!stats) return null;
 
   // Daha basit ve anlaşılır dönem verisi
   const semesterData = [
     {
       name: "1. Dönem",
-      aktifÖğrenci: data.studentCount,
+      aktifÖğrenci: stats.studentCount,
       bırakanÖğrenci: 0
     },
     {
       name: "2. Dönem",
-      aktifÖğrenci: Math.round(data.studentCount * 0.9),
-      bırakanÖğrenci: Math.round(data.dropoutCount * 0.3)
+      aktifÖğrenci: Math.round(stats.studentCount * 0.9),
+      bırakanÖğrenci: Math.round(stats.dropoutCount * 0.3)
     },
     {
       name: "3. Dönem",
-      aktifÖğrenci: Math.round(data.studentCount * 0.8),
-      bırakanÖğrenci: Math.round(data.dropoutCount * 0.6)
+      aktifÖğrenci: Math.round(stats.studentCount * 0.8),
+      bırakanÖğrenci: Math.round(stats.dropoutCount * 0.6)
     },
     {
       name: "4. Dönem",
-      aktifÖğrenci: Math.round(data.studentCount * 0.7),
-      bırakanÖğrenci: data.dropoutCount
+      aktifÖğrenci: Math.round(stats.studentCount * 0.7),
+      bırakanÖğrenci: stats.dropoutCount
     }
   ];
 

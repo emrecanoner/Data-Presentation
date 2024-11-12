@@ -2,7 +2,7 @@ import { StudentData } from '../types/analytics';
 
 export async function fetchDatasetStats() {
   try {
-    const response = await fetch('/api');
+    const response = await fetch('/RealTimeStudentSuccessPredictionSystem/stats.json');
     
     const stats = await response.json();
     

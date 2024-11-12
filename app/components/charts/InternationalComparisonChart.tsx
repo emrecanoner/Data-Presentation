@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,21 +15,21 @@ type Props = {
   };
 };
 
-export function InternationalComparisonChart({ data }: Props) {
-  if (!data) return null;
+export function InternationalComparisonChart({ stats }: Props) {
+  if (!stats) return null;
 
   const chartData = [
     {
       name: "Uluslararası",
-      toplam: data.internationalCount,
-      mezun: Math.round(data.internationalCount * (data.graduateCount / data.studentCount)),
-      burslu: Math.round(data.internationalCount * (data.scholarshipCount / data.studentCount))
+      toplam: stats.internationalCount,
+      mezun: Math.round(stats.internationalCount * (stats.graduateCount / stats.studentCount)),
+      burslu: Math.round(stats.internationalCount * (stats.scholarshipCount / stats.studentCount))
     },
     {
       name: "Yerel",
-      toplam: data.studentCount - data.internationalCount,
-      mezun: data.graduateCount - Math.round(data.internationalCount * (data.graduateCount / data.studentCount)),
-      burslu: data.scholarshipCount - Math.round(data.internationalCount * (data.scholarshipCount / data.studentCount))
+      toplam: stats.studentCount - stats.internationalCount,
+      mezun: stats.graduateCount - Math.round(stats.internationalCount * (stats.graduateCount / stats.studentCount)),
+      burslu: stats.scholarshipCount - Math.round(stats.internationalCount * (stats.scholarshipCount / stats.studentCount))
     }
   ];
 

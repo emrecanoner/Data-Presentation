@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,8 +15,8 @@ type Props = {
   };
 };
 
-export function ScholarshipPerformanceChart({ data }: Props) {
-  if (!data) {
+export function ScholarshipPerformanceChart({ stats }: Props) {
+  if (!stats) {
     return (
       <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
         <Title className="text-gray-100 text-lg">Burs Dağılımı</Title>
@@ -28,11 +28,11 @@ export function ScholarshipPerformanceChart({ data }: Props) {
   const chartData = [
     {
       name: "Burslu",
-      value: data.scholarshipCount
+      value: stats.scholarshipCount
     },
     {
       name: "Burssuz",
-      value: data.studentCount - data.scholarshipCount
+      value: stats.studentCount - stats.scholarshipCount
     }
   ];
 

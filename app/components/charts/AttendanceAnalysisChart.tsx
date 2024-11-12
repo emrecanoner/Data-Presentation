@@ -3,7 +3,7 @@ import { Card, Title, Text } from "@tremor/react"
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 type Props = {
-  data: {
+  stats: {
     averageAge: number;
     dropoutCount: number;
     graduateCount: number;
@@ -15,8 +15,8 @@ type Props = {
   };
 };
 
-export function AttendanceAnalysisChart({ data }: Props) {
-  if (!data) {
+export function AttendanceAnalysisChart({ stats }: Props) {
+  if (!stats) {
     return (
       <Card className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30">
         <Title className="text-gray-100 text-lg">Uluslararası Öğrenci Dağılımı</Title>
@@ -28,11 +28,11 @@ export function AttendanceAnalysisChart({ data }: Props) {
   const chartData = [
     {
       name: "Uluslararası",
-      value: data.internationalCount
+      value: stats.internationalCount
     },
     {
       name: "Yerel",
-      value: data.studentCount - data.internationalCount
+      value: stats.studentCount - stats.internationalCount
     }
   ];
 

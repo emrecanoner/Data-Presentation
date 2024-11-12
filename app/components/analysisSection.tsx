@@ -55,14 +55,14 @@ export function AnalysisSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <GenderSuccessChart data={data?.data} />
-          <ScholarshipPerformanceChart data={data?.data} />
-          <AttendanceAnalysisChart data={data?.data} />
-          <CourseSuccessRateChart data={data?.data} />
-          <AcademicDistributionChart data={data?.data} />
-          <AgeAnalysisChart data={data?.data} />
-          <InternationalComparisonChart data={data?.data} />
-          <SemesterTrendChart data={data?.data} />
+          <GenderSuccessChart stats={data} />
+          <ScholarshipPerformanceChart stats={data} />
+          <AttendanceAnalysisChart stats={data} />
+          <CourseSuccessRateChart stats={data} />
+          <AcademicDistributionChart stats={data} />
+          <AgeAnalysisChart stats={data} />
+          <InternationalComparisonChart stats={data} />
+          <SemesterTrendChart stats={data} />
         </div>
 
         <div className="mb-6">
