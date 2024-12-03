@@ -8,6 +8,7 @@ import { AnalysisSection } from './components/analysisSection'
 import { fetchDatasetStats } from './utils/dataProcessor';
 import { LiteratureSection } from './components/literatureSection';
 import { ThanksSection } from './components/thanksSection';
+import { ReferenceAnalysisSection } from './components/referenceAnalysisSection'
 
 export default function Home() {
   const [stats, setStats] = useState<any>(null);
@@ -152,6 +153,7 @@ export default function Home() {
       <AnalysisSection />
       <MethodologySection />
       <LiteratureSection />
+      <ReferenceAnalysisSection />
       <ThanksSection />
     </div>
   )
