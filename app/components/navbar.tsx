@@ -36,7 +36,8 @@ export function Navbar() {
     { label: 'Proje Özeti', href: '#summary' },
     { label: 'Veri Analizi', href: '#data-analysis' },
     { label: 'Metodoloji', href: '#methodology' },
-    { label: 'Literatür', href: '#literature' }
+    { label: 'Literatür', href: '#literature' },
+    { label: 'Referans Analizi', href: '#reference-analysis' }
   ]
 
   return (
