@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const outputPath = path.join(process.cwd(), 'public', 'stats.json');
+const outputPath = path.join(process.cwd(), 'stats.json');
 
 const stats = {
   studentCount: 4424,
