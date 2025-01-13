@@ -1,0 +1,546 @@
+{
+    "academic": {
+        "scholarship": {
+            "overall": {
+                "fStat": 152.51244983527826,
+                "pValue": 1.8008249244446593e-34
+            },
+            "first_semester": {
+                "fStat": 128.9412921346499,
+                "pValue": 1.7818079254711028e-29
+            },
+            "second_semester": {
+                "fStat": 150.16503775859158,
+                "pValue": 5.643536866288354e-34
+            },
+            "title": "Burs Etkisi Hipotezi",
+            "description": "H0: Burs alan ve almayan öğrenciler arasında akademik başarı farkı yoktur",
+            "semester_differences": {
+                "Burs almıyor": {
+                    "semester_difference": -0.4848,
+                    "tStat": 8.976,
+                    "pValue": 4.595954480129434e-19,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Burs alıyor": {
+                    "semester_difference": -0.1862,
+                    "tStat": 3.0038,
+                    "pValue": 0.002727102705977755,
+                    "interpretation": "Güçlü istatistiksel anlamlılık (p < 0.01)"
+                }
+            }
+        },
+        "attendance": {
+            "overall": {
+                "fStat": 15.687159416903528,
+                "pValue": 7.590573030098178e-05
+            },
+            "first_semester": {
+                "fStat": 18.17209825675386,
+                "pValue": 2.0602063294375394e-05
+            },
+            "second_semester": {
+                "fStat": 11.303009957334494,
+                "pValue": 0.0007803855703035074
+            },
+            "title": "Gündüz/Gece Eğitimi Hipotezi",
+            "description": "H0: Gündüz ve gece eğitimi alan öğrenciler arasında başarı farkı yoktur",
+            "semester_differences": {
+                "Akşam": {
+                    "semester_difference": -0.2771,
+                    "tStat": 2.1447,
+                    "pValue": 0.03247916360560061,
+                    "interpretation": "İstatistiksel olarak anlamlı (p < 0.05)"
+                },
+                "Gündüz": {
+                    "semester_difference": -0.427,
+                    "tStat": 9.2542,
+                    "pValue": 3.4515828681595303e-20,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                }
+            }
+        },
+        "previous_education": {
+            "overall": {
+                "fStat": 11.991598650028111,
+                "pValue": 7.031312772381992e-28
+            },
+            "first_semester": {
+                "fStat": 10.582630140078232,
+                "pValue": 4.699236241021939e-24
+            },
+            "second_semester": {
+                "fStat": 11.746805214219123,
+                "pValue": 3.2588929228459475e-27
+            },
+            "title": "Önceki Eğitim Etkisi Hipotezi",
+            "description": "H0: Farklı önceki eğitim seviyelerine sahip öğrenciler arasında akademik başarı farkı yoktur",
+            "semester_differences": {
+                "Ortaöğretim": {
+                    "semester_difference": -0.3784,
+                    "tStat": 8.1263,
+                    "pValue": 5.966315364104736e-16,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Temel eğitim 3. kademe (9/10/11. sınıf) veya dengi": {
+                    "semester_difference": -1.33,
+                    "tStat": 4.0421,
+                    "pValue": 8.189663065931354e-05,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Mesleki yüksek teknik kurs": {
+                    "semester_difference": -0.1433,
+                    "tStat": 1.0997,
+                    "pValue": 0.27897698674146004,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Teknolojik uzmanlık kursu": {
+                    "semester_difference": -0.1711,
+                    "tStat": 1.1286,
+                    "pValue": 0.260287505427993,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "11. sınıf - tamamlanmamış": {
+                    "semester_difference": -3.2976,
+                    "tStat": 1.0551,
+                    "pValue": 0.3688463702681399,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim - önlisans": {
+                    "semester_difference": -0.9709,
+                    "tStat": 2.8792,
+                    "pValue": 0.004691973002066354,
+                    "interpretation": "Güçlü istatistiksel anlamlılık (p < 0.01)"
+                },
+                "Yükseköğretim - lisans (1. kademe)": {
+                    "semester_difference": 0.2208,
+                    "tStat": -1.5152,
+                    "pValue": 0.13778354560117598,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim - lisans": {
+                    "semester_difference": -0.2798,
+                    "tStat": 0.6287,
+                    "pValue": 0.53604938314055,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim - yüksek lisans": {
+                    "semester_difference": 0.2637,
+                    "tStat": -0.6415,
+                    "pValue": 0.5416275912200046,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Diğer - 11. sınıf": {
+                    "semester_difference": -0.0484,
+                    "tStat": 0.1429,
+                    "pValue": 0.8870258039683879,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim - yüksek lisans (2. kademe)": {
+                    "semester_difference": -2.7152,
+                    "tStat": 1.3719,
+                    "pValue": 0.22846016943410036,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "10. sınıf - tamamlanmamış": {
+                    "semester_difference": -0.25,
+                    "tStat": 1.0,
+                    "pValue": 0.49999999999999956,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim öğrencisi": {
+                    "semester_difference": -0.9839,
+                    "tStat": 1.1116,
+                    "pValue": 0.28380857937042275,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "12. sınıf - tamamlanmamış": {
+                    "semester_difference": 1.0455,
+                    "tStat": -0.9099,
+                    "pValue": 0.3842992425810786,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Temel eğitim 2. kademe (6/7/8. sınıf) veya dengi": {
+                    "semester_difference": 0.2037,
+                    "tStat": -0.6691,
+                    "pValue": 0.5283048965962598,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Yükseköğretim - doktora": {
+                    "semester_difference": 0.0,
+                    "tStat": null,
+                    "pValue": null,
+                    "interpretation": "Analiz yapılamadı"
+                },
+                "10. sınıf": {
+                    "semester_difference": 1.0,
+                    "tStat": null,
+                    "pValue": null,
+                    "interpretation": "Analiz yapılamadı"
+                }
+            }
+        }
+    },
+    "socioeconomic": {
+        "gdp": {
+            "title": "GDP Etkisi Hipotezi",
+            "description": "H0: GDP ile akademik başarı arasında ilişki yoktur",
+            "first_semester": {
+                "correlation": 0.054800763614860054,
+                "pValue": 0.0002656482761682437
+            },
+            "second_semester": {
+                "correlation": 0.07126949612318967,
+                "pValue": 2.0845061997423336e-06
+            },
+            "overall": {
+                "correlation": 0.06607908795239767,
+                "pValue": 1.0890394664556736e-05
+            }
+        },
+        "parent_education": {
+            "title": "Ebeveyn Eğitim Düzeyi Etkisi",
+            "description": "H0: Ebeveynlerin eğitim düzeyi ile öğrencinin akademik başarısı arasında ilişki yoktur",
+            "mother": {
+                "first_semester": {
+                    "correlation": -0.036156801737291626,
+                    "pValue": 0.016172033713187026
+                },
+                "second_semester": {
+                    "correlation": -0.0311748409153216,
+                    "pValue": 0.03812994960318373
+                }
+            },
+            "father": {
+                "first_semester": {
+                    "correlation": -0.0077322930634817315,
+                    "pValue": 0.607139033023192
+                },
+                "second_semester": {
+                    "correlation": -0.008083036194479105,
+                    "pValue": 0.5909325707799529
+                }
+            }
+        },
+        "debtor": {
+            "overall": {
+                "fStat": 73.35749683742131,
+                "pValue": 1.4734795077561205e-17
+            },
+            "first_semester": {
+                "fStat": 48.511294100941576,
+                "pValue": 3.767937195646369e-12
+            },
+            "second_semester": {
+                "fStat": 87.66338135699431,
+                "pValue": 1.2031487949739234e-20
+            },
+            "title": "Borç Durumu Etkisi Hipotezi",
+            "description": "H0: Borçlu ve borçsuz öğrenciler arasında başarı farkı yoktur",
+            "semester_differences": {
+                "Borçsuz": {
+                    "semester_difference": -0.3311,
+                    "tStat": 7.5292,
+                    "pValue": 6.29972686499608e-14,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Borçlu": {
+                    "semester_difference": -1.0302,
+                    "tStat": 6.1859,
+                    "pValue": 1.2818143596044368e-09,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                }
+            }
+        },
+        "tuition": {
+            "overall": {
+                "fStat": 394.3970150082345,
+                "pValue": 3.8501622955108836e-84
+            },
+            "first_semester": {
+                "fStat": 295.7911682108189,
+                "pValue": 3.204521696968648e-64
+            },
+            "second_semester": {
+                "fStat": 426.1532296507542,
+                "pValue": 1.8190578813763753e-90
+            },
+            "title": "Harç Ödeme Durumu Etkisi Hipotezi",
+            "description": "H0: Harç ödemesi düzenli olan ve olmayan öğrenciler arasında başarı farkı yoktur",
+            "semester_differences": {
+                "Harç Güncel Değil": {
+                    "semester_difference": -1.3126,
+                    "tStat": 7.5271,
+                    "pValue": 2.262191693902009e-13,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Harç Güncel": {
+                    "semester_difference": -0.2884,
+                    "tStat": 6.7133,
+                    "pValue": 2.1780841066636764e-11,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                }
+            }
+        }
+    },
+    "demographic": {
+        "gender": {
+            "overall": {
+                "fStat": 189.84478500116936,
+                "pValue": 2.545038815998753e-42
+            },
+            "first_semester": {
+                "fStat": 164.61663252762446,
+                "pValue": 5.03801204004491e-37
+            },
+            "second_semester": {
+                "fStat": 182.59080586913856,
+                "pValue": 8.418851605011945e-41
+            },
+            "title": "Cinsiyet Etkisi Hipotezi",
+            "description": "H0: Kadın ve erkek öğrenciler arasında akademik başarı farkı yoktur",
+            "semester_differences": {
+                "Kadın": {
+                    "semester_difference": -0.3222,
+                    "tStat": 6.8818,
+                    "pValue": 7.22881767459809e-12,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Erkek": {
+                    "semester_difference": -0.5735,
+                    "tStat": 6.4961,
+                    "pValue": 1.1062115882810526e-10,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                }
+            }
+        },
+        "age": {
+            "title": "Yaş Etkisi Hipotezi",
+            "description": "H0: Yaş ile akademik başarı arasında ilişki yoktur",
+            "first_semester": {
+                "correlation": -0.15661584876292442,
+                "pValue": 1.0811222665896378e-25
+            },
+            "second_semester": {
+                "correlation": -0.17341895553689493,
+                "pValue": 3.2795467771436885e-31
+            },
+            "overall": {
+                "correlation": -0.17248490644693226,
+                "pValue": 6.885438345558245e-31
+            }
+        },
+        "marital_status": {
+            "overall": {
+                "fStat": 5.978398260572838,
+                "pValue": 1.613697483963709e-05
+            },
+            "first_semester": {
+                "fStat": 5.658770911872121,
+                "pValue": 3.3066824910433064e-05
+            },
+            "second_semester": {
+                "fStat": 5.570877039879294,
+                "pValue": 4.0251711413253236e-05
+            },
+            "title": "Medeni Durum Etkisi Hipotezi",
+            "description": "H0: Medeni durum grupları arasında akademik başarı farkı yoktur",
+            "semester_differences": {
+                "Bekar": {
+                    "semester_difference": -0.3902,
+                    "tStat": 8.6082,
+                    "pValue": 1.0585892996171774e-17,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Evli": {
+                    "semester_difference": -0.4716,
+                    "tStat": 2.8681,
+                    "pValue": 0.0043610029193753685,
+                    "interpretation": "Güçlü istatistiksel anlamlılık (p < 0.01)"
+                },
+                "Boşanmış": {
+                    "semester_difference": -0.8186,
+                    "tStat": 2.1436,
+                    "pValue": 0.03476223766291323,
+                    "interpretation": "İstatistiksel olarak anlamlı (p < 0.05)"
+                },
+                "Dul": {
+                    "semester_difference": 1.0625,
+                    "tStat": -1.7299,
+                    "pValue": 0.1820863775421049,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Birlikte yaşıyor": {
+                    "semester_difference": -1.6013,
+                    "tStat": 2.3873,
+                    "pValue": 0.025199352763538838,
+                    "interpretation": "İstatistiksel olarak anlamlı (p < 0.05)"
+                },
+                "Yasal olarak ayrı": {
+                    "semester_difference": 0.2444,
+                    "tStat": -0.979,
+                    "pValue": 0.3725468819503196,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                }
+            }
+        },
+        "international": {
+            "overall": {
+                "fStat": 0.06945214763212262,
+                "pValue": 0.7921484076352368
+            },
+            "first_semester": {
+                "fStat": 0.17629062397822634,
+                "pValue": 0.6746009907884025
+            },
+            "second_semester": {
+                "fStat": 0.009431126722560019,
+                "pValue": 0.9226402734015499
+            },
+            "title": "Uluslararası Öğrenci Etkisi Hipotezi",
+            "description": "H0: Uluslararası ve yerel öğrenciler arasında başarı farkı yoktur",
+            "semester_differences": {
+                "Yerel": {
+                    "semester_difference": -0.4069,
+                    "tStat": 9.28,
+                    "pValue": 2.616947937652581e-20,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Uluslararası": {
+                    "semester_difference": -0.5545,
+                    "tStat": 1.7763,
+                    "pValue": 0.07846900959477146,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                }
+            }
+        }
+    },
+    "enrollment": {
+        "application_mode": {
+            "overall": {
+                "fStat": 16.620003856895707,
+                "pValue": 1.5594340698643202e-40
+            },
+            "first_semester": {
+                "fStat": 13.577494606645073,
+                "pValue": 3.321918602706773e-32
+            },
+            "second_semester": {
+                "fStat": 17.159486345160566,
+                "pValue": 5.184567298587479e-42
+            },
+            "title": "Başvuru Şekli Etkisi Hipotezi",
+            "description": "H0: Farklı başvuru şekilleri arasında akademik başarı farkı yoktur",
+            "semester_differences": {
+                "2. Aşama - Genel kontenjan": {
+                    "semester_difference": -0.4749,
+                    "tStat": 4.8918,
+                    "pValue": 1.1897670494525918e-06,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "Uluslararası öğrenci (lisans)": {
+                    "semester_difference": 0.264,
+                    "tStat": -0.3702,
+                    "pValue": 0.7139436969384478,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "1. Aşama - Genel kontenjan": {
+                    "semester_difference": -0.3031,
+                    "tStat": 5.3189,
+                    "pValue": 1.1818094644005758e-07,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "23 yaş üstü": {
+                    "semester_difference": -0.8506,
+                    "tStat": 6.4218,
+                    "pValue": 2.3332742238046424e-10,
+                    "interpretation": "Çok güçlü istatistiksel anlamlılık (p < 0.001)"
+                },
+                "3. Aşama - Genel kontenjan": {
+                    "semester_difference": -0.4571,
+                    "tStat": 1.768,
+                    "pValue": 0.07953851248221673,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Kısa dönem diploma sahipleri": {
+                    "semester_difference": -0.1361,
+                    "tStat": 1.0125,
+                    "pValue": 0.318439291146617,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Teknolojik uzmanlık diploma sahipleri": {
+                    "semester_difference": -0.2533,
+                    "tStat": 1.7114,
+                    "pValue": 0.08846626851774696,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Kurum/bölüm değişikliği": {
+                    "semester_difference": -0.4109,
+                    "tStat": 1.2096,
+                    "pValue": 0.23132387548431727,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Bölüm değişikliği": {
+                    "semester_difference": 0.2425,
+                    "tStat": -1.2754,
+                    "pValue": 0.2031167626462861,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Diğer yüksek öğrenim sahipleri": {
+                    "semester_difference": -0.939,
+                    "tStat": 2.9598,
+                    "pValue": 0.0036240611850634373,
+                    "interpretation": "Güçlü istatistiksel anlamlılık (p < 0.01)"
+                },
+                "Transfer": {
+                    "semester_difference": 0.069,
+                    "tStat": -0.2139,
+                    "pValue": 0.8312082830715124,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "1. Aşama - Özel kontenjan (Madeira Adası)": {
+                    "semester_difference": -0.4659,
+                    "tStat": 2.7702,
+                    "pValue": 0.008708996957687272,
+                    "interpretation": "Güçlü istatistiksel anlamlılık (p < 0.01)"
+                },
+                "1. Aşama - Özel kontenjan (Azor Adaları)": {
+                    "semester_difference": -0.2773,
+                    "tStat": 0.6972,
+                    "pValue": 0.4963358961583977,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "612/93 sayılı kararname": {
+                    "semester_difference": 0.3014,
+                    "tStat": -3.296,
+                    "pValue": 0.08102222467329209,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "854-B/99 sayılı kararname": {
+                    "semester_difference": -1.35,
+                    "tStat": 1.101,
+                    "pValue": 0.2994698650948984,
+                    "interpretation": "İstatistiksel olarak anlamlı değil (p > 0.05)"
+                },
+                "Kurum/bölüm değişikliği (Uluslararası)": {
+                    "semester_difference": -1.8286,
+                    "tStat": null,
+                    "pValue": null,
+                    "interpretation": "Analiz yapılamadı"
+                },
+                "533-A/99 sayılı kararname, madde b2 (Farklı Plan)": {
+                    "semester_difference": 0.9301,
+                    "tStat": null,
+                    "pValue": null,
+                    "interpretation": "Analiz yapılamadı"
+                },
+                "533-A/99 sayılı kararname, madde b3 (Diğer Kurum)": {
+                    "semester_difference": -0.1765,
+                    "tStat": null,
+                    "pValue": null,
+                    "interpretation": "Analiz yapılamadı"
+                }
+            }
+        }
+    }
+}
