@@ -37,7 +37,8 @@ export function Navbar() {
     { label: 'Veri Analizi', href: '#data-analysis' },
     { label: 'Metodoloji', href: '#methodology' },
     { label: 'Literatür', href: '#literature' },
-    { label: 'Referans Analizi', href: '#reference-analysis' }
+    { label: 'Referans Analizi', href: '#reference-analysis' },
+    { label: 'Hipotez Testleri', href: '#hypothesis-tests' }
   ]
 
   return (
