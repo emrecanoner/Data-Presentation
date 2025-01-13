@@ -320,9 +320,9 @@ const hypothesisResults = {
       },
       interpretation: "Başvuru türleri arasında akademik başarı açısından anlamlı farklar vardır.",
       additionalNotes: [
-        "Her başvuru türünde dönemler arası performans düşüşü gözleniyor",
+        "Uluslararası öğrenciler hariç tüm başvuru türlerinde dönemler arası performans düşüşü gözleniyor",
         "p < 0.001 değeri ile sonuçlar istatistiksel olarak çok anlamlı",
-        "Genel kontenjan öğrencilerinde en az düşüş (-0.30) gözleniyor"
+        "Uluslararası öğrenciler pozitif bir değişim (+0.264) gösterirken, 23 yaş üstü öğrencilerde en büyük düşüş (-0.85) gözleniyor"
       ]
     }
   }

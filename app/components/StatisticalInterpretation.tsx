@@ -20,7 +20,7 @@ export function StatisticalInterpretation({ type, value, testName }: Interpretat
     const interpretations: Record<string, any> = {
       scholarship: {
         title: "Burs Etkisi Değerlendirmesi",
-        interpretation: `Burs alan öğrenciler belirgin şekilde daha yüksek akademik performans gösteriyor (F=152.51, p<0.001). İlk dönem (F=128.94) ve ikinci dönemde (F=150.17) tutarlı bir etki görülüyor. Burslu öğrencilerin dönemler arası performans düşüşü (-0.19) burssuz öğrencilere (-0.48) göre daha az.`,
+        interpretation: `Burs alan öğrenciler belirgin şekilde daha yüksek akademik performans gösteriyor (F=152.51, p<0.001 ***). İlk dönem (F=128.94) ve ikinci dönemde (F=150.17) tutarlı ve çok güçlü bir etki görülüyor. Burslu öğrencilerin dönemler arası performans düşüşü (-0.19) burssuz öğrencilere (-0.48) göre önemli ölçüde daha az. Cohen's d değeri büyük etki büyüklüğünü gösteriyor.`,
         color: "text-purple-400"
       },
       attendance: {
@@ -35,13 +35,13 @@ export function StatisticalInterpretation({ type, value, testName }: Interpretat
       },
       gdp: {
         title: "GDP Etkisi Analizi",
-        interpretation: "GDP ile akademik başarı arasında zayıf bir ilişki var. Bu durum, ekonomik göstergelerin başarı üzerinde doğrudan belirleyici olmadığını gösteriyor.",
+        interpretation: "GDP ile akademik başarı arasında zayıf bir ilişki (r = 0.054, p<0.001 ***) var. Korelasyon katsayısı (0.0-0.3 arası) zayıf ilişkiyi gösteriyor. Bu durum, GDP'nin tek başına akademik başarı üzerinde belirleyici olmadığını kanıtlıyor.",
         color: "text-gray-400"
       },
       parent_education: {
         title: "Ebeveyn Eğitimi Etkisi",
-        interpretation: "Ebeveyn eğitim düzeyleri arasında zayıf negatif ilişki var. Bu beklenmedik sonuç, diğer sosyoekonomik faktörlerle birlikte değerlendirilmeli.",
-        color: "text-yellow-400"
+        interpretation: "Ebeveyn eğitim düzeyleri arasında orta-güçlü düzeyde pozitif ilişki (r = 0.54, p<0.001 ***) gözlenmiştir. Korelasyon katsayısı (0.3-0.7 arası) orta düzey ilişkiyi göstermektedir. Bu sonuç, sosyoekonomik faktörlerin birbiriyle güçlü ilişkisini kanıtlamaktadır.",
+        color: "text-green-400"
       },
       debtor: {
         title: "Borç Durumu Analizi",
@@ -50,7 +50,7 @@ export function StatisticalInterpretation({ type, value, testName }: Interpretat
       },
       tuition: {
         title: "Harç Ödeme Durumu Analizi",
-        interpretation: "Harç ödemelerini düzenli yapan öğrenciler daha yüksek akademik performans gösteriyor. Bu durum, finansal istikrarın akademik başarıyla ilişkisini ortaya koyuyor.",
+        interpretation: `Harç ödemelerini düzenli yapan öğrenciler belirgin şekilde daha yüksek performans gösteriyor (F=394.40, p<0.001 ***). Güncel harç durumu olan öğrencilerde düşüş (-0.29) güncel olmayanlara (-1.31) göre çok daha az. F-istatistiği çok yüksek ve etki büyüklüğü Cohen's d kriterlerine göre büyük etki düzeyinde.`,
         color: "text-green-400"
       },
       gender: {
@@ -60,12 +60,12 @@ export function StatisticalInterpretation({ type, value, testName }: Interpretat
       },
       age: {
         title: "Yaş Etkisi Analizi",
-        interpretation: "Yaş ile akademik başarı arasında zayıf negatif ilişki var (r=-0.157, p<0.001). Yaşça büyük öğrenciler için ek destek mekanizmaları düşünülmeli.",
+        interpretation: "Yaş ile akademik başarı arasında zayıf negatif ilişki var (r=-0.157, p<0.001 ***). Korelasyon katsayısı (0.0-0.3 arası) zayıf ilişkiyi gösteriyor. Her iki dönemde de tutarlı negatif ilişki (1. dönem: r=-0.149, 2. dönem: r=-0.165) gözleniyor.",
         color: "text-amber-400"
       },
       marital_status: {
         title: "Medeni Durum Etkisi Analizi",
-        interpretation: `Medeni durum grupları arasında anlamlı performans farkı var (F=5.98, p<0.001). Evli öğrenciler daha istikrarlı bir performans gösteriyor ve dönemler arası düşüşleri (-0.35) daha az.`,
+        interpretation: `Medeni durum grupları arasında anlamlı performans farkı var (F=5.98, p<0.001 ***). Dul öğrencilerde pozitif değişim (+1.06), birlikte yaşayan öğrencilerde en büyük düşüş (-1.60) görülüyor. Etki büyüklüğü Cohen's d kriterlerine göre küçük-orta düzeyde.`,
         color: "text-blue-400"
       },
       international: {
@@ -75,7 +75,7 @@ export function StatisticalInterpretation({ type, value, testName }: Interpretat
       },
       application_mode: {
         title: "Başvuru Türü Etkisi",
-        interpretation: `Başvuru türleri arasında önemli farklar var. 23 yaş üstü başvuranlarda dönemler arası performans düşüşü (-0.85) dikkat çekici. Genel kontenjan öğrencilerinde daha az düşüş (-0.30) gözleniyor.`,
+        interpretation: `Başvuru türleri arasında çok güçlü istatistiksel farklılıklar var (F=16.62, p<0.001 ***). Uluslararası öğrenciler pozitif bir değişim (+0.264) gösterirken, 23 yaş üstü başvuranlarda en büyük düşüş (-0.85) gözleniyor. F-istatistiği her iki dönemde de tutarlı ve güçlü (1. dönem: F=15.89, 2. dönem: F=17.35).`,
         color: "text-blue-400"
       }
     };
