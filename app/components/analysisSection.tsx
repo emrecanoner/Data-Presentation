@@ -25,7 +25,7 @@ export function AnalysisSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/RealTimeStudentSuccessPredictionSystem/stats.json');
+        const response = await fetch('/student-success-prediction-system/stats.json');
         const result = await response.json();
         setData(result);
       } catch (error) {

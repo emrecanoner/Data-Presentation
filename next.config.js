@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/RealTimeStudentSuccessPredictionSystem',
-  assetPrefix: '/RealTimeStudentSuccessPredictionSystem/',
+  basePath: '/student-success-prediction-system',
+  assetPrefix: '/student-success-prediction-system/',
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
     if (isServer) {
